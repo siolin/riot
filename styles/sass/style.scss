@@ -1,0 +1,12 @@
+header {
+  padding-top: 100px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@import 'keep-form';
+@import 'keep-options';
