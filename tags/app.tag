@@ -1,8 +1,6 @@
 <app>
 
-  <!--<keep-form></keep-form>-->
-
-  <header>
+  <header class="main-header">
 
     <keep form={true} list={false}></keep>
 

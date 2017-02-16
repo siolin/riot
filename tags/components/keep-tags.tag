@@ -1,8 +1,8 @@
-<keep-tags class="keep-tags">
+<keep-tags>
 
   <div class="tag-block">
 
-    <form action="" onsubmit={addTag}>
+    <form class="tag-form" action="" onsubmit={addTag}>
 
       <input type="text" name="tag" placeholder="Tag" autocomplete="off">
 

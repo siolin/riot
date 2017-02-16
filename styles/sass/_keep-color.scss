@@ -1,0 +1,42 @@
+.color-block {
+  position: relative;
+
+  .pallet-block {
+    position: absolute;
+    z-index: 2;
+    top: 1.5rem;
+    left: -2rem;
+
+    display: flex;
+
+    width: 7rem;
+
+    border-radius: .5rem;
+    background-color: white;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.5);
+
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .pallet-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: .2rem;
+
+    cursor: pointer;
+    transition: .3s box-shadow;
+
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background: white;
+    box-shadow: 1px 1px 2px 0 rgba(0,0,0,.5);
+
+    font-size: 0;
+
+    :hover {
+      box-shadow: 2px 2px 4px 0 rgba(0,0,0,.5);
+    }
+  }
+}

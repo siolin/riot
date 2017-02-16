@@ -1,64 +1,88 @@
-<keep class="keep">
+<keep>
 
-  <form class="add-form" action="" style="background-color: {color}" onsubmit="{addKeep}">
-    <label for="keep" style="display: none;">Keep</label>
+  <div class="keep" style="background-color: {color}">
 
-    <!-- Keep field -->
-    <input
-      name="keep"
-      class="text-field"
-      type="text"
-      id="keep"
-      placeholder="Keep"
-      if={opts.form}>
+    <form class="add-form" action="" onsubmit="{addKeep}">
+      <label for="keep" style="display: none;">Keep</label>
 
-    <!-- Text of keep -->
-    <div
-      class="keep-name"
-      if={opts.list}>{item.title}</div>
+      <!-- Keep field -->
+      <input
+        name="keep"
+        class="text-field"
+        type="text"
+        id="keep"
+        placeholder="Keep"
+        if={opts.form || editKeepShow}>
 
-    <!-- Tag list -->
-    <div class="tags">
-      <div each={tagList}>
-        <div class="tag" if={select}>{title}</div>
-      </div>
-    </div>
+      <!-- Text of keep -->
+      <div
+        class="keep-name"
+        if={opts.list && !editKeepShow}>{item.title}</div>
 
-    <!-- Options of keep -->
-    <div class="keep-options">
-      <i class="color-link fa fa-paint-brush" onmouseover="{showModal}" data-modal="pallet"></i>
-      <div if={modals.pallet} onmouseleave="{showModal}" data-modal="pallet">
-        <keep-color />
-      </div>
-
-      <i class="action-link fa fa-ellipsis-v" onmouseover="{showModal}" data-modal="actions"></i>
-      <div if={modals.actions} onmouseleave="{showModal}" data-modal="actions">
-        <div class="action-list">
-          <ul class="list">
-            <li class="item"><a onclick={showModal} data-modal="tags">Добавить ярлык</a></li>
-            <li class="item"><a onclick={showModal} data-modal="category">Добавить категорию</a></li>
-          </ul>
+      <!-- Tag list -->
+      <div class="tags">
+        <div each={tagList}>
+          <div class="tag" if={select}>{title}</div>
         </div>
       </div>
-      <div class="keep-tags" if={modals.tags} data-modal="tags" onmouseleave="{showModal}">
-        <keep-tags />
-      </div>
-    </div>
 
-  </form>
+      <!-- Category list -->
+      <div class="category">
+        <div each={categoryList}>
+          <div class="category" if={select}>{title}</div>
+        </div>
+      </div>
+
+      <!-- Options of keep -->
+      <div class="keep-options" if={opts.form || editKeepShow}>
+        <i class="color-link fa fa-paint-brush" onclick="{showModal}" data-modal="pallet"></i>
+        <div if={modals.pallet} onmouseleave="{showModal}" data-modal="pallet">
+          <keep-color />
+        </div>
+
+        <i class="action-link fa fa-ellipsis-v" onclick="{showModal}" data-modal="actions"></i>
+        <div if={modals.actions} onmouseleave="{showModal}" data-modal="actions">
+          <div class="action-list">
+            <ul class="list">
+              <li class="item"><a onclick={showModal} data-modal="tags">Добавить ярлык</a></li>
+              <li class="item"><a onclick={showModal} data-modal="category">Добавить категорию</a></li>
+            </ul>
+          </div>
+        </div>
+        <div if={modals.tags} data-modal="tags" onmouseleave="{showModal}">
+          <keep-tags />
+        </div>
+        <div if={modals.category} data-modal="category" onmouseleave="{showModal}">
+          <keep-category />
+        </div>
+
+      </div>
+
+    </form>
+
+    <i class="edit-btn fa fa-pencil-square-o" aria-hidden="true" if={opts.list} onclick="{editKeep}"></i>
+
+  </div>
+
 
   <script>
 
     var vm = this;
 
     this.tagList = [];
+    this.categoryList = [];
     this.color = 'white';
+    this.editKeepShow = false;
 
     // Set keep text
     if (this.opts.form) {
       this.keep.value = '';
     } else if (this.opts.list) {
       this.item = this.opts.item;
+      this.keep.value = this.item.title;
+      this.tagList = this.item.tagList;
+      this.categoryList = this.item.categoryList;
+      this.color = this.item.color;
     }
 
     // Modals
@@ -105,8 +129,15 @@
         tagList: vm.tagList
       });
       vm.keep.value = '';
-      console.log(vm.parent);
       vm.parent.update();
+    }
+
+    // Show keep options
+    this.editKeep = function(e) {
+      e.preventDefault();
+      vm.editKeepShow = !vm.editKeepShow;
+      vm.update();
+      console.log(vm);
     }
 
   </script>

@@ -1,12 +1,22 @@
-header {
+.main-header {
+  display: flex;
+
   padding-top: 100px;
+
+  justify-content: center;
 }
 
 main {
   display: flex;
+
+  margin-top: 100px;
+
   justify-content: center;
   flex-wrap: wrap;
 }
 
 @import 'keep-form';
 @import 'keep-options';
+@import 'keep-color';
+@import 'keep-tag';
+@import 'keep-category';

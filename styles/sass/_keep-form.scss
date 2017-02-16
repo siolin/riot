@@ -1,17 +1,12 @@
 .keep {
+
   font-family: 'Quicksand', sans-serif;
+  position : relative;
+  padding : 1rem;
+  border-radius : 1rem;
+  box-shadow : 0 0 2px rgba(0,0,0,.5);
+  margin: 2rem 4rem;
 
-  .add-form {
-    position : relative;
-
-    width : 40%;
-    margin : 0 auto;
-    padding : 1rem;
-
-    border-radius : 1rem;
-    box-shadow : 0 0 2px rgba(0,0,0,.5);
-    font-family: inherit;
-    }
   .text-field,
   .keep-name {
     font-size : 2rem;
@@ -20,12 +15,14 @@
 
     width : 100%;
     padding : .5rem;
+    margin-top: 1.5rem;
 
     border : none;
     border-radius : .5rem;
     outline : none;
     box-shadow : 0 0 2px rgba(0,0,0,.5);
-    }
+  }
+
   .keep-name {
     box-shadow: none;
   }
@@ -42,6 +39,20 @@
     background-color: #eee;
     box-shadow : 0 0 2px rgba(0,0,0,.5);
     border-radius: .2rem;
+    margin-left: .5rem;
   }
 
+  .edit-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: .8rem;
+    color: silver;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
   }
+
+}

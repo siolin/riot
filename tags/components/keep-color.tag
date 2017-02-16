@@ -1,14 +1,19 @@
-<keep-color class="color-block">
+<keep-color>
 
-  <div class="pallet-block">
-    <button
+  <div class="color-block">
+
+    <div class="pallet-block">
+      <button
       type="button"
       class="pallet-btn"
       each={color in palletColor}
       style="background-color: {color}"
       onclick="{setColor}"
       data-modal="pallet">{color}</button>
+    </div>
+
   </div>
+
 
   <script>
 

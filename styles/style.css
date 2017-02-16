@@ -1,21 +1,21 @@
-header {
-  padding-top: 100px; }
+.main-header {
+  display: flex;
+  padding-top: 100px;
+  justify-content: center; }
 
 main {
   display: flex;
+  margin-top: 100px;
   justify-content: center;
   flex-wrap: wrap; }
 
 .keep {
-  font-family: 'Quicksand', sans-serif; }
-  .keep .add-form {
-    position: relative;
-    width: 40%;
-    margin: 0 auto;
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    font-family: inherit; }
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  margin: 2rem 4rem; }
   .keep .text-field,
   .keep .keep-name {
     font-size: 2rem;
@@ -23,6 +23,7 @@ main {
     font-family: inherit;
     width: 100%;
     padding: .5rem;
+    margin-top: 1.5rem;
     border: none;
     border-radius: .5rem;
     outline: none;
@@ -38,113 +39,140 @@ main {
     padding: 0 .2rem;
     background-color: #eee;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    border-radius: .2rem; }
+    border-radius: .2rem;
+    margin-left: .5rem; }
+  .keep .edit-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: .8rem;
+    color: silver;
+    cursor: pointer; }
+    .keep .edit-btn:hover {
+      color: black; }
 
 .keep-options {
   position: relative;
   display: flex;
   padding-top: 1rem; }
-  .keep-options .color-block {
-    position: relative; }
   .keep-options .color-link {
-    cursor: pointer;
-    margin-right: 1rem; }
-  .keep-options .options-btn {
-    position: relative; }
-  .keep-options .pallet-block {
-    position: absolute;
-    top: 1.5rem;
-    left: -2rem;
-    display: flex;
-    justify-content: space-around;
-    width: 7rem;
-    flex-wrap: wrap;
-    background-color: white;
-    border-radius: .5rem;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
-  .keep-options .pallet-btn {
-    width: 1.5rem;
-    height: 1.5rem;
-    border: none;
-    outline: none;
-    border-radius: 50%;
-    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5);
-    background: white;
-    cursor: pointer;
-    font-size: 0;
-    margin: .2rem;
-    transition: .3s box-shadow; }
-    .keep-options .pallet-btn :hover {
-      box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5); }
+    margin-right: 1rem;
+    cursor: pointer; }
+  .keep-options .action-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+    cursor: pointer; }
   .keep-options .action-list {
     position: relative; }
-  .keep-options .action-link {
-    cursor: pointer;
-    padding-left: .5rem;
-    padding-right: .5rem; }
   .keep-options .list {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
     position: absolute;
+    z-index: 2;
     top: 1.5rem;
     left: -1.5rem;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     border-radius: .5rem;
+    background-color: white;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
     .keep-options .list .item {
       width: 12rem;
-      list-style: none;
-      word-break: nowrap;
       padding: .5rem;
+      list-style: none;
       cursor: pointer;
+      word-break: nowrap;
       border-radius: inherit; }
       .keep-options .list .item:hover {
         background-color: #eee; }
-  .keep-options .tag-block {
-    width: 12rem;
+
+.color-block {
+  position: relative; }
+  .color-block .pallet-block {
     position: absolute;
-    top: 2rem;
+    z-index: 2;
+    top: 1.5rem;
+    left: -2rem;
+    display: flex;
+    width: 7rem;
+    border-radius: .5rem;
+    background-color: white;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    justify-content: space-around;
+    flex-wrap: wrap; }
+  .color-block .pallet-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: .2rem;
+    cursor: pointer;
+    transition: .3s box-shadow;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background: white;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5);
+    font-size: 0; }
+    .color-block .pallet-btn :hover {
+      box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5); }
+
+.tag-block {
+  position: relative; }
+  .tag-block .tag-form {
+    position: absolute;
+    z-index: 2;
+    top: 1.5rem;
     display: flex;
     flex-direction: column;
+    width: 12rem;
     padding: .5rem;
-    background-color: white;
     border-radius: .5rem;
+    background-color: white;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
-    .keep-options .tag-block input[type="text"] {
+    .tag-block .tag-form input[type="text"] {
       width: 100%;
+      padding: .2rem;
       border: none;
       border-radius: .2rem;
-      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
-      padding: .2rem;
-      outline: none; }
-  .keep-options .tag-list {
-    padding: 0; }
-  .keep-options .tag-item {
-    list-style: none; }
-    .keep-options .tag-item input[type="checkbox"] {
       outline: none;
-      border: none; }
-  .keep-options .anchor-block {
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
+    .tag-block .tag-form .tag-list {
+      padding: 0; }
+    .tag-block .tag-form .tag-item {
+      list-style: none; }
+      .tag-block .tag-form .tag-item input[type="checkbox"] {
+        border: none;
+        outline: none; }
+
+.category-block {
+  position: relative; }
+  .category-block .category-form {
+    position: absolute;
+    z-index: 2;
+    top: 1.5rem;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 16rem; }
-  .keep-options .anchor-btn {
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: .5rem;
-    margin-right: .5rem;
-    line-height: 1.1rem;
-    text-transform: lowercase;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-family: inherit;
-    outline: none;
-    transition: .5s box-shadow;
-    margin-bottom: .5rem; }
-    .keep-options .anchor-btn.select {
-      box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5); }
+    flex-direction: column;
+    width: 12rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color: white;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
+    .category-block .category-form input[type="text"] {
+      width: 100%;
+      padding: .2rem;
+      border: none;
+      border-radius: .2rem;
+      outline: none;
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
+    .category-block .category-form .category-list {
+      padding: 0; }
+    .category-block .category-form .category-item {
+      list-style: none; }
+      .category-block .category-form .category-item input[type="checkbox"] {
+        border: none;
+        outline: none; }
+    .category-block .category-form .category-title {
+      cursor: pointer; }
+      .category-block .category-form .category-title .children-length {
+        font-size: .8rem;
+        color: #555; }
